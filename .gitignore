@@ -4,3 +4,4 @@ MNIST_DATASET/MNIST/processed/test.pt
 #Folder
 
 /MNIST_DATASET
+/models

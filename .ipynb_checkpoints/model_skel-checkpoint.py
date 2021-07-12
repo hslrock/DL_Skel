@@ -1,4 +1,5 @@
 import torch.nn as nn
+import torch
 
 class model_skel(nn.Module):
     
@@ -29,3 +30,5 @@ class model_skel(nn.Module):
         x=self.relu(self.fc1(x))
         x=self.tanh(self.fc2(x))
         return x
+    
+    
