@@ -48,12 +48,17 @@ def train(config,train_dl,valid_dl,model):
         correct=0
         total=0
         
-        for batch_idx,(img_label) in enumerate(valid_dl):
+        for batch_idx,(img,label) in enumerate(valid_dl):
+            
+            img=img.to(config["device"])
+            label=label.to(config["device"])
+            
             output=model(img)
             #Measure Loss
             loss=config["crit"](output,label)
-            #Update Parameters
+        
             valid_loss+=loss.item()
+
             if config["accuracy"]:
                 _, predicted = torch.max(output.data, 1)
                 total+=label.size()[0]
